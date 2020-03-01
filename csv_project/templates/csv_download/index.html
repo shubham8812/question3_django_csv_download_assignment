@@ -1,0 +1,64 @@
+{% extends 'csv_download/base.html'%}
+
+{% block content %}
+  <div class="container py-5">
+<!-- For demo purpose -->
+<div class="row text-center text-white mb-5 py-4">
+    <div class="col-lg-9 mx-auto">
+        <h1 class="display-4">Download the csv file from here</h1>
+    </div>
+</div><!-- End -->
+
+
+<form class="" action="{% url 'csv_download:download'%}" method="post">
+  {% csrf_token %}
+
+
+  <div class="row">
+  <div class="col-lg-6 mx-auto">
+  <center>
+  <label for="file"  class="text-white mb-3 lead">Select the file</label>
+  <select id = 'file' name="file_name"  class="selectpicker">
+      <option value="0:177">file1</option>
+      <option value="178:355">file2</option>
+      <option value="356:534">file3</option>
+      <option value="534:712">file4</option>
+  </select>
+  </center>
+  </div>
+  </div>
+
+<br><br>
+
+
+    <div class="row">
+        <div class="col-lg-6 mx-auto">
+          <center>
+          <label class="text-white mb-3 lead">Select the columns</label>
+          <select name="columns_name" class="selectpicker" multiple>
+            <option value="passid">passid</option>
+            <option value="survived">survived</option>
+            <option value="pclass">pclass</option>
+            <option value="name">name</option>
+            <option value="age">age</option>
+            <option value="sibsp">sibsp</option>
+            <option value="parch">parch</option>
+            <option value="ticket">ticket</option>
+            <option value="fare">fare</option>
+            <option value="embarked">embarked</option>
+          </select>
+          </center>
+        </div>
+    </div>
+    <br><br>
+    <center><button class="btn-save btn btn-primary btn-sm">Download</button></center>
+  </div>
+
+
+
+
+</form>
+
+
+
+{% endblock %}
